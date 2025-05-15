@@ -406,43 +406,43 @@
                 "fillColor": "af_irr_1990",
                 "fillColorFn": "colorMapStyle",
                 "fillColorMap": "portland"
-                  },
-                "strokeColor": "lightgray",
-                "strokeWidth": 2
+              },
+              "strokeColor": "lightgray",
+              "strokeWidth": 2
             }
           },
           {
-           "type": "VECTORTILE",
-           "name": "groundwater_1990",
-           "url": "./geoserver/gwc/service/tms/1.0.0/workspace1:groundwater_1990@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-           "queryable": true,
-           "displayInLegend": true,
-           "legendDisplayName": {
-             "en": "groundwater_1990",
-             "es": "groundwater_1990",
-             "de": "groundwater_1990"
-           },
-           "format": "MVT",
-           "renderMode": "hybrid",
-           "visible": true,
-           "zIndex": 100,
-           "minResolution": 0,
-           "maxResolution": 400,
-           "opacity": 0.69,
-           "hoverable": true,
-           "style": {
-             "hoverTextColor": "white",
-             "hoverBackgroundColor": "black",
-             "type": "circle",
-             "strokeColor": "white",
-             "strokeWidth": 0.5,
-             "stylePropFnRef": {
-              "radius": "variable1",
-               "fillColor": "variable1",
-               "fillColorFn": "colorMapStyle",
-               "fillColorMap": "portland"
-               }
-             }
+            "type": "VECTORTILE",
+            "name": "groundwater_1990",
+            "url": "./geoserver/gwc/service/tms/1.0.0/workspace1:groundwater_1990@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": {
+              "en": "groundwater_1990",
+              "es": "groundwater_1990",
+              "de": "groundwater_1990"
+            },
+            "format": "MVT",
+            "renderMode": "hybrid",
+            "visible": true,
+            "zIndex": 100,
+            "minResolution": 0,
+            "maxResolution": 400,
+            "opacity": 0.69,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "black",
+              "type": "circle",
+              "strokeColor": "white",
+              "strokeWidth": 0.5,
+              "stylePropFnRef": {
+                "radius": "variable1",
+                "fillColor": "variable1",
+                "fillColorFn": "colorMapStyle",
+                "fillColorMap": "portland"
+              }
+            }
           }
         ]
       },
