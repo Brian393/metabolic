@@ -14,11 +14,13 @@
     "defaultLanguage": "en",
     "color": {
       "primary": "#00000e",
-      "secondary": "#7C2CA3"
+      "secondary": "#7C2CA3",
+      "link": "#429823",
+      "mapLink": "#7C2CA3"
     },
     "font": {
-      "url": "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
-      "family": "Roboto"
+      "url": "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap",
+      "family": "Open+Sans"
     },
     "legend": {
       "isVisible": true
@@ -30,13 +32,16 @@
     },
     "sideBar": {
       "isVisible": true,
-      "backgroundColor": "#f5efe9",
-      "textColor": "black"
+      "backgroundColor": "#3f2398",
+      "textColor": "#f1f2f3"
     },
     "navbar": {
       "dropdownMenu": false
     },
-    "customNavigationScheme": "1"
+    "customNavigationScheme": "1",
+    "spotlightMessage": {
+      "isVisible": false
+    }
   },
   "map": {
     "projectionCode": "EPSG:3857",
@@ -49,7 +54,7 @@
       38.219, 19.109, 9.5546, 4.7773, 2.3887, 1.1943, 0.5972
     ],
     "center": [0, 0],
-    "minResolution": 0.25,
+    "minResolution": 0.12,
     "maxResolution": 64000,
     "layers": [
       {
@@ -183,13 +188,13 @@
         "queryable": true,
         "format": "GeoJSON",
         "legendDisplayName": {
-          "en": "HsF",
-          "es": "HsF",
-          "pt": "HsF"
+          "en": "Wetlands w/o Borders",
+          "es": "Humedales sin froteras",
+          "pt": "Humedales sin froteras"
         },
         "visible": true,
         "displayInLegend": true,
-        "displaySidebarInfo": true,
+        "displaySidebarInfo": false,
         "zIndex": 1000,
         "minResolution": 0,
         "maxResolution": 64000,
@@ -260,7 +265,7 @@
         "type": "XYZ",
         "name": "osm",
         "group": "media",
-        "url": "https://geo.timetochange.today/geoserver/gwc/service/tms/1.0.0/osm_bright@EPSG%3A900913@png/{z}/{x}/{-y}.png",
+        "url": "https://mapproxy.crystalball.timetochange.today/wmts/toner/osm_bright_grid/{z}/{x}/{y}.png",
         "minResolution": 0.25,
         "maxResolution": 64000,
         "queryable": false,
@@ -305,7 +310,7 @@
         "format": "MVT",
         "renderMode": "hybrid",
         "visible": true,
-        "zIndex": 100,
+        "zIndex": 100000,
         "minResolution": 1,
         "maxResolution": 64000,
         "hoverable": true,
@@ -348,103 +353,6 @@
           },
           "strokeColor": "#7c2ca3"
         }
-      },
-      {
-        "type": "GROUP",
-        "name": "wateruse",
-        "minResolution": 1,
-        "maxResolution": 68000,
-        "displayInLegend": true,
-        "legendDisplayName": {
-          "en": "Groundwater use",
-          "de": "Wassernutzung",
-          "es": "Uso del agua"
-        },
-        "legendIcon": "",
-        "visible": true,
-        "displaySidebarInfo": true,
-        "group": "media",
-        "attributions": "",
-        "layers": [
-          {
-            "type": "XYZ",
-            "name": "Cropscape 2006",
-            "url": "https://hidinginplainssight.org/geoserver/gwc/service/tms/1.0.0/workspace1:cdl_2006_ks@EPSG%3A900913@png/{z}/{x}/{-y}.png",
-            "minResolution": 0.25,
-            "maxResolution": 40,
-            "opacity": 0.99,
-            "zIndex": 10,
-            "queryable": false,
-            "displayInLegend": false,
-            "legendDisplayName": {
-              "en": "Cropscape 2006",
-              "es": "Cropscape 2006"
-            },
-            "visible": true
-          },
-          {
-            "type": "VECTORTILE",
-            "name": "counties_1990",
-            "url": "./geoserver/gwc/service/tms/1.0.0/workspace1:counties_1990@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-            "queryable": true,
-            "displayInLegend": true,
-            "legendDisplayName": {
-              "en": "counties_1990",
-              "es": "counties_1990",
-              "de": "counties_1990"
-            },
-            "format": "MVT",
-            "renderMode": "hybrid",
-            "visible": true,
-            "zIndex": 1000,
-            "opacity": 0.6,
-            "minResolution": 40,
-            "maxResolution": 64000,
-            "hoverable": true,
-            "style": {
-              "stylePropFnRef": {
-                "fillColor": "af_irr_1990",
-                "fillColorFn": "colorMapStyle",
-                "fillColorMap": "portland"
-              },
-              "strokeColor": "lightgray",
-              "strokeWidth": 2
-            }
-          },
-          {
-            "type": "VECTORTILE",
-            "name": "groundwater_1990",
-            "url": "./geoserver/gwc/service/tms/1.0.0/workspace1:groundwater_1990@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-            "queryable": true,
-            "displayInLegend": true,
-            "legendDisplayName": {
-              "en": "groundwater_1990",
-              "es": "groundwater_1990",
-              "de": "groundwater_1990"
-            },
-            "format": "MVT",
-            "renderMode": "hybrid",
-            "visible": true,
-            "zIndex": 100,
-            "minResolution": 0,
-            "maxResolution": 400,
-            "opacity": 0.69,
-            "hoverable": true,
-            "style": {
-              "hoverTextColor": "white",
-              "hoverBackgroundColor": "black",
-              "type": "circle",
-              "strokeColor": "white",
-              "strokeWidth": 0.5,
-              "stylePropFnRef": {
-                "radius": "variable1",
-                "fillColor": "variable1",
-                "fillColorFn": "colorMapStyle",
-                "fillColorMap": "portland"
-              }
-            }
-          }
-        ]
       },
       {
         "type": "VECTORTILE",
@@ -575,63 +483,215 @@
         "opacity": 1,
         "queryable": false,
         "visible": true
+      },
+      {
+        "type": "VECTOR",
+        "name": "html_posts",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:html_posts&outputFormat=application/json&srsname=EPSG:3857",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": {
+          "en": "User posts",
+          "es": "Publicaciones",
+          "pt": "Publicações"
+        },
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 1002,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "canEdit": false,
+        "style": {
+          "styleRef": "htmlLayerStyle",
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
+        }
+      },
+      {
+        "type": "OLMS",
+        "name": "basemap1",
+        "group": "data",
+        "url": "https://tileserver.ecotopia.today/styles/basic-transparent/style.json",
+        "minResolution": 0.25,
+        "maxResolution": 64000,
+        "opacity": 1,
+        "queryable": false,
+        "visible": false,
+        "displayInLegend": true,
+        "legendDisplayName": {
+          "en": "OSM-Maptiler",
+          "es": "OSM-Maptiler",
+          "pt": "OSM-Maptiler"
+        }
+      },
+      {
+        "type": "OLMS",
+        "name": "basemap2",
+        "group": "data",
+        "url": "https://tileserver.ecotopia.today/styles/toner/style.json",
+        "minResolution": 0.25,
+        "maxResolution": 64000,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLegend": true,
+        "legendDisplayName": {
+          "en": "OSM-Toner",
+          "es": "OSM-Toner",
+          "pt": "OSM-Toner"
+        }
+      },
+      {
+        "type": "OLMS",
+        "name": "basemap3",
+        "group": "data",
+        "url": "https://tileserver.ecotopia.today/styles/osm-bright/style.json",
+        "minResolution": 0.12,
+        "maxResolution": 64000,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLegend": true,
+        "legendDisplayName": {
+          "en": "OSM-Bright",
+          "es": "OSM-Bright",
+          "pt": "OSM-Bright"
+        }
+      },
+      {
+        "type": "OLMS",
+        "name": "basemap4",
+        "group": "data",
+        "url": "https://tileserver.ecotopia.today/styles/dark-matter/style.json",
+        "minResolution": 0.25,
+        "maxResolution": 64000,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLegend": true,
+        "legendDisplayName": {
+          "en": "OSM-Bright",
+          "es": "OSM-Bright",
+          "pt": "OSM-Bright"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "remada",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:remada&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "remar",
+        "queryable": true,
+        "displayInLegend": true,
+        "displaySidebarInfo": false,
+        "legendDisplayName": {
+          "en": "Row Downriver",
+          "es": "La Remada",
+          "pt": "A Remada"
+        },
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10000,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": false,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "https://hidrovia.s3.us-east-2.amazonaws.com/assets/icons/naranja.png",
+          "scale": 0.9,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "organizaciones",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:organizaciones&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "remar",
+        "queryable": true,
+        "displayInLegend": true,
+        "displaySidebarInfo": false,
+        "legendDisplayName": {
+          "en": "Organizaciones",
+          "es": "Organizations",
+          "pt": "Organizações"
+        },
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10000,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": false,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "https://hidrovia.s3.us-east-2.amazonaws.com/assets/icons/naranja.png",
+          "scale": 0.9,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
+        }
       }
     ],
     "groups": {
       "media": {
         "default": {
           "layers": [
-            "osm",
-            "mississippi",
+            "basemap2",
             "polygons",
             "ESRI-World-Imagery2",
-            "wateruse",
             "points",
             "lines",
             "videos",
-            "photos"
+            "photos",
+            "remada",
+            "html_posts"
           ],
-          "center": [-87.473, 41.658],
-          "resolution": 32,
-          "mobileResolution": 120,
+          "center": [-87.534, 41.68],
+          "resolution": 30,
+          "mobileResolution": 60,
           "mobileCenter": [-87.5, 41.663],
           "minResolution": 0,
-          "maxResolution": 64000
+          "maxResolution": 64000,
+          "backgroundColor": "#f1f2f3"
         },
         "local": {
-          "layers": ["ESRI-World-Imagery"],
+          "layers": ["ESRI-World-Imagery", "basemap1"],
           "center": [-88.179, 41.837],
           "resolution": 2000,
           "mobileResolution": 16000,
           "minResolution": 0,
-          "maxResolution": 64000
+          "maxResolution": 64000,
+          "backgroundColor": "#f1f2f3"
         },
         "global": {
-          "layers": ["osm2", "Rosario", "colaboradores"],
+          "layers": ["basemap2", "Rosario", "colaboradores"],
           "center": [-12.42, 29.84],
           "resolution": 68000,
           "mobileResolution": 80000,
           "minResolution": 0,
-          "maxResolution": 64000
+          "maxResolution": 64000,
+          "backgroundColor": "#f1f2f3"
         }
       },
       "data": {
         "default": {
-          "layers": ["carto_dark", "ESRI-World-Imagery2", "glri_projects"],
+          "layers": ["basemap4", "ESRI-World-Imagery2", "glri_projects"],
           "center": [-84.75, 43.561],
-          "resolution": 860,
+          "resolution": 1800,
           "mobileResolution": 4000,
           "mobileCenter": [26.041, -4.828],
           "minResolution": 0,
-          "maxResolution": 64000
+          "maxResolution": 64000,
+          "backgroundColor": "#000000"
         },
         "local": {
-          "layers": ["osm", "burnables"],
+          "layers": ["basemap3", "burnables"],
           "center": [-88.179, 41.837],
           "resolution": 2000,
           "mobileResolution": 16000,
           "minResolution": 0,
-          "maxResolution": 64000
+          "maxResolution": 64000,
+          "backgroundColor": "#f1f2f3"
         },
         "global": {
           "layers": ["carto_dark", "ESRI-World-Imagery2", "burnables"],
@@ -639,7 +699,8 @@
           "resolution": 68000,
           "mobileResolution": 80000,
           "minResolution": 0,
-          "maxResolution": 64000
+          "maxResolution": 64000,
+          "backgroundColor": "#f1f2f3"
         }
       }
     },
